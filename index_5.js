@@ -3,10 +3,10 @@ const prompt=require('prompt-sync')();
 let k= prompt("Inserisci un numero");
 while (k=>i){
     for(i=0;i<=k;i++){
-        if(i% ==0 i ){
+        if(i%k==0){
             primo= i;
             console.log(primo);
         }
     }
-    i--;
+    k--;
 }
