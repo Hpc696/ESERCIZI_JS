@@ -15,3 +15,7 @@ switch(prompt("Per addizione premi + ; Per sottrazione premi - ; Per moltiplicaz
     risultato= primon / secondon ; break;
 };
 console.log("Il risultato è" + risultato);
+/*parte bonus -implementate la funzionalita' memoria
+-aggiungere radice quadrata e potenza */
+
+
