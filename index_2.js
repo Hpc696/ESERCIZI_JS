@@ -4,8 +4,8 @@ const prompt=require('prompt-sync')();
 let m= prompt("Inserisci un numero");
 let somma=0;
 for(let i=0; i<=m; i++){
-    if (i%3==0){
+    if (i%3==0){ //parte bonus basta mettere if((i%3==0) && (i%7==0)) x numeri divisibili sia x 3 che per 7 
         somma= i + somma
-    }
+    } //per chiedere altri input num prompt qui
 };
 console.log(somma);
