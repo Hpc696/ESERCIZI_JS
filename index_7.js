@@ -1,3 +1,5 @@
+const prompt=require('prompt-sync')();
+//10. gioco carta, forbice e sasso
 let pc=0; let user=0;
 let tent=3; let winpc=0; let winuser=0;
 for (i=0; i<tent; i++){
