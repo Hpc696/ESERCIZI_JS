@@ -5,8 +5,8 @@ console.log("Uè aspè cerco tutti i numeri primi fino a "+K);
 let quant=0;  //contatore x la quantità di nums primi
 for (let i=2; i<=K; i++) { //ciclo numeri che vanno fino a K 
 	let contatore= true; //contatore booleano x riconoscere numero primo sì/no
-	//x migliorare prestazioni? divis<=radice quadrata dei numeri(i)?...così metà dei for?
-	for(let divis=2; divis<i/*divis<=Math.sqrt(i)*/; divis++){ //ciclo x divisori dei numeri(i)
+	//'migliora prestazioni' divis<=radice quadrata dei numeri(i)...così metà dei cicli
+	for(let divis=2; /*divis<i*/divis<=Math.sqrt(i); divis++){ //ciclo x divisori dei numeri(i)
 		if(i%divis === 0){
 			contatore=false;
 			break;
@@ -17,4 +17,6 @@ for (let i=2; i<=K; i++) { //ciclo numeri che vanno fino a K
 		quant++;
 	}
 }
-console.log("Trovati "+ quant +" numeri primi mannaggia a te");
+console.log("Ho cercato tutti i numeri primi fino a "+K);
+console.log("Ne ho trovati "+ quant +" mannaggia a te");
+//parte bonus mancante
