@@ -21,6 +21,10 @@ if(vicino(contenitore, avg)==avg){
 } else{ //richiamo e stampo funz x numero prima e dopo al numero + vicino alla media 
     console.log("Il numero prima del numero più vicino alla media è "+ prima(contenitore, avg));
     console.log("Il numero dopo il numero più vicino alla media è "+ dopo(contenitore, avg));
+    let distprima=avg-prima(contenitore, avg);
+    let distdopo=dopo(contenitore, avg)-avg;
+    console.log("Il numero prima dista "+distprima);
+    console.log("Il numero dopo dista "+distdopo);
 }
 
 //funzione per inserimento valori nell'array
