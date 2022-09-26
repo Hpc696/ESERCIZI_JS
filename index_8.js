@@ -18,14 +18,15 @@ console.log("Il numero più vicino alla media dentro l'array è "+ vicino(conten
 //numero dentro array è uguale alla media?
 if(vicino(contenitore, avg)==avg){
     console.log("Valore della media è nell'array");
-} else{ //richiamo e stampo funz x numero prima e dopo al numero + vicino alla media 
-    console.log("Il numero prima del numero più vicino alla media è "+ prima(contenitore, avg));
-    console.log("Il numero dopo il numero più vicino alla media è "+ dopo(contenitore, avg));
-    let distprima=avg-prima(contenitore, avg);
-    let distdopo=dopo(contenitore, avg)-avg;
-    console.log("Il numero prima dista "+distprima);
-    console.log("Il numero dopo dista "+distdopo);
-}
+} 
+//richiamo e stampo funz x ordine decresc. e x numero prima e dopo al numero + vicino alla media 
+ordine(contenitore); console.log(contenitore);
+console.log("Il numero prima del numero più vicino alla media è "+ prima(contenitore, avg));
+console.log("Il numero dopo il numero più vicino alla media è "+ dopo(contenitore, avg));
+let distprima=avg-prima(contenitore, avg);
+let distdopo=dopo(contenitore, avg)-avg;
+console.log("Il numero prima dista "+distprima);
+console.log("Il numero dopo dista "+distdopo);
 
 //funzione per inserimento valori nell'array
 function inserimento(contenitore, dimensione){
@@ -51,29 +52,23 @@ function vicino(contenitore, avg){
        }
     } return nvicino;
 }//ora va yeah!
-//funzione x trovare numero prima del numero + vicino alla media
-function prima(contenitore, avg){
-    let low=0; let high=contenitore.length-2;
-    while(low<high) {
-        let mid=Math.floor((low+high)/2);
-        if(avg-contenitore[mid] > contenitore[mid+2]-avg) {
-            low=mid+1;
-        } else {
-            high=mid;
-        }
-    }
-    return quelloprima=parseInt(contenitore.slice(high, high+2));
+//metto in ordine decrescente l'array e funz. x trovare numero prima e ql dopo il num + vicino alla media
+function ordine(contenitore){
+    contenitore.sort(function(a, b){return b-a});
 }
-//funzione x trovare numero dopo il numero + vicino alla media
+function prima(contenitore, avg){
+    let nprimavicino=contenitore[0]; 
+    for(let i=0; i<contenitore.length; i++){
+        if(Math.abs(contenitore[i]-avg)<Math.abs(nprimavicino-avg)){ 
+            nprimavicino=contenitore[i--];
+       }
+    } return nprimavicino;
+}
 function dopo(contenitore, avg){
-    let low=0; let high=contenitore.length-2;
-    while(low<high) {
-        let mid=Math.floor((low+high)/2);
-        if(avg-contenitore[mid] > contenitore[mid+2]-avg) {
-            low=mid+1;
-        } else {
-            high=mid;
-        }
-    }
-    return quellodopo=parseInt(contenitore.slice(low-2, low));
+    let ndopovicino=contenitore[0]; 
+    for(let i=0; i<contenitore.length; i++){
+        if(Math.abs(contenitore[i]-avg)<Math.abs(ndopovicino-avg)){ 
+            ndopovicino=contenitore[i++];
+       }
+    } return ndopovicino;
 }
