@@ -17,12 +17,11 @@ console.log("La media dell'array è "+ avg);
 console.log("Il numero più vicino alla media dentro l'array è "+ vicino(contenitore, avg));
 //numero dentro array è uguale alla media?
 if(vicino(contenitore, avg)==avg){
-    console.log("Valore della media è nell'array")
+    console.log("Valore della media è nell'array");
+} else{ //richiamo e stampo funz x numero prima e dopo al numero + vicino alla media 
+    console.log("Il numero prima del numero più vicino alla media è "+ prima(contenitore, avg));
+    console.log("Il numero dopo il numero più vicino alla media è "+ dopo(contenitore, avg));
 }
-/* richiamo e stampo funz x numero prima e dopo + vicini alla media
-console.log("Il numero prima della media più vicino è "+ prima(avg, contenitore));
-console.log("Il numero dopo la media più vicino è "+ dopo(avg, contenitore)); */
-
 
 //funzione per inserimento valori nell'array
 function inserimento(contenitore, dimensione){
@@ -45,33 +44,32 @@ function vicino(contenitore, avg){
     for(let i=0; i<contenitore.length; i++){
         if(Math.abs(contenitore[i]-avg)<Math.abs(nvicino-avg)){ //controllo differenza tra ogni valore e media (riassegnando nel caso di differenza sempre + piccola nvicino)
             nvicino=contenitore[i];
-       } /* let diff=new Array();
-            for(let j=0; j<dimensione; j++){
-            diff[j]=Math.abs(avg-contenitore[i]);
-            if(avg==contenitore[i]) {
-                nvicino=contenitore[i];
-            } else if (diff[j]<diff[j++]){
-                nvicino=contenitore[i];
-            } 
-        }non va e che cazzo!*/
+       }
     } return nvicino;
 }//ora va yeah!
-/*
-//funzione per numero prima + vic media
-function quelloprima(contenitore, avg){
-    let p=0;
-    for(i=0; i<contenitore.length; i++){
-      if(contenitore[i]<avg){
-        p=contenitore[i];
-      }
-    } return p;
-  }
-//funz x numero dopo + vic media 
-function quellodopo(contenitore, avg){
-    let p=0;
-    for(i=0; i<contenitore.length; i++){
-      if(contenitore[i]>avg){
-        p=contenitore[i];
-      }
-    } return p;
-} non vanno burp*/
+//funzione x trovare numero prima del numero + vicino alla media
+function prima(contenitore, avg){
+    let low=0; let high=contenitore.length-2;
+    while(low<high) {
+        let mid=Math.floor((low+high)/2);
+        if(avg-contenitore[mid] > contenitore[mid+2]-avg) {
+            low=mid+1;
+        } else {
+            high=mid;
+        }
+    }
+    return quelloprima=parseInt(contenitore.slice(high, high+2));
+}
+//funzione x trovare numero dopo il numero + vicino alla media
+function dopo(contenitore, avg){
+    let low=0; let high=contenitore.length-2;
+    while(low<high) {
+        let mid=Math.floor((low+high)/2);
+        if(avg-contenitore[mid] > contenitore[mid+2]-avg) {
+            low=mid+1;
+        } else {
+            high=mid;
+        }
+    }
+    return quellodopo=parseInt(contenitore.slice(low-2, low));
+}
