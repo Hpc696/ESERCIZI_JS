@@ -24,4 +24,4 @@ if(winu1>winu2){
     console.log("Partita vinta dal GIOCATORE 1");
 } else{
     console.log("Partita vinta dal GIOCATORE 2");
-}
+} 
